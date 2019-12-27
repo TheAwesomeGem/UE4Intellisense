@@ -47,7 +47,7 @@ namespace UE4Intellisense.Actions
 
         public Task<object> GetPreviewAsync(CancellationToken cancellationToken)
         {
-            return null;
+            return Task.FromResult<object>(null);
         }
 
         public void Dispose()

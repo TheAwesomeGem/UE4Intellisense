@@ -37,18 +37,18 @@ namespace UE4Intellisense.Providers
             SnapshotSpan range, CancellationToken cancellationToken)
         {
             return Task.Factory.StartNew(() =>
-            {
-                TextExtent extent;
-                if (!TryGetWordUnderCaret(out extent))
-                    return false;
-                // don't display the action if the extent has whitespace
-                if (!extent.IsSignificant)
-                    return false;
-                UE4MacroStatement ue4Statement;
-                if (!_ue4Processor.TryGetUE4Macro(range.Start, out ue4Statement))
-                    return false;
-                return true;
-            }, cancellationToken);
+             {
+                 TextExtent extent;
+                 if (!TryGetWordUnderCaret(out extent))
+                     return false;
+                 // don't display the action if the extent has whitespace
+                 if (!extent.IsSignificant)
+                     return false;
+                 UE4MacroStatement ue4Statement;
+                 if (!_ue4Processor.TryGetUE4Macro(range.Start, out ue4Statement))
+                     return false;
+                 return true;
+             }, cancellationToken);
         }
 
         public IEnumerable<SuggestedActionSet> GetSuggestedActions(
